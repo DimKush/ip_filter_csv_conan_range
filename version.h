@@ -1,0 +1,5 @@
+#pragma once 
+
+/* #undef PROJECT_VERSION_MAJOR */
+#define PROJECT_VERSION_MINOR 1
+#define PROJECT_VERSION_PATCH 1
