@@ -20,9 +20,9 @@ int main(int argc, char **argv)
  
     sortIp(ip);
     
-    filtredIpOne = filter(ip, 1);
+    filtredIpOne = filterRange(ip, 1);
 
-    filtredIpTwo = filter(ip, 46,70); 
+    filtredIpTwo = filterRange(ip, 46,70); 
 
     filtredIpThree = filter_any(ip, 46);
 

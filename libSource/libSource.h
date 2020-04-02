@@ -30,7 +30,8 @@ namespace libSource
     template<typename ... Args>
     vectVectInt filter(vectVectInt & ipBytes, const Args ... args);
 
-    void checkForTrash(vectStr & ipForCheck);
+    [[deprecated]]void checkForTrash(vectStr & ipForCheck);
+
     vectVectInt convertToInt(const vectVectStr &ipSorted);
 
     vectVectInt prepareIpContainer(const vectStr &rows);

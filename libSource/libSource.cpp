@@ -1,3 +1,4 @@
+#include <range/v3/all.hpp>
 #include <algorithm>
 #include <iostream>
 #include <fstream>
@@ -157,6 +158,7 @@ namespace libSource
         return ipSorted;
     }
 
+    [[deprecated]]
     void checkForTrash(vectStr & ipForCheck)
     {
         std::regex regIp(REGEX_CONST);
@@ -171,7 +173,7 @@ namespace libSource
             }
         }
     }
-
+    
 
     vectVectInt convertToInt(const vectVectStr &ipSorted)
     {
@@ -192,6 +194,7 @@ namespace libSource
 
         return ip;
     }
+
 
     vectVectInt prepareIpContainer(const vectStr &rows)
     {
