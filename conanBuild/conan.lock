@@ -1,0 +1,20 @@
+{
+ "profile_host": "[settings]\narch=x86_64\narch_build=x86_64\nbuild_type=Release\ncompiler=clang\ncompiler.libcxx=libstdc++\ncompiler.version=9\nos=Linux\nos_build=Linux\n[options]\n[build_requires]\n[env]\nzlib:CC=/usr/bin/clang\nzlib:CXX=/usr/bin/clang++",
+ "graph_lock": {
+  "nodes": {
+   "0": {
+    "pref": null,
+    "options": "",
+    "requires": [
+     "1"
+    ],
+    "path": "/home/dim/Desktop/CppProject/ip_filter_csv_conan_range/conanfile.txt"
+   },
+   "1": {
+    "pref": "range-v3/0.4.0@ericniebler/stable#0:c56f72666bd7a51587a21788921f73368560826e#c88583a116df6fdda4e506e57da6e30f",
+    "options": ""
+   }
+  }
+ },
+ "version": "0.3"
+}
