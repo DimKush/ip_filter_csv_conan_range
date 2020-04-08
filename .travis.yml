@@ -25,10 +25,7 @@ before_script:
     - export CC="clang-9"
 
 script:
-  - mkdir conanBuild/
-  - cd conanBuild/
-  - conan install ..
-  - cd ..
+  - conan install .
   - cmake .
   - cmake --build .
   - cmake --build . --target test
