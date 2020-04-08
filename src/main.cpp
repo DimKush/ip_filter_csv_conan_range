@@ -8,7 +8,6 @@ int main(int argc, char **argv)
     
 	std::string mainContent;
     vectStr rows, ListOfFilesInVector;
-    vectVectStr ipBytesStr;
     vectVectInt ip, filtredIpOne, filtredIpTwo, filtredIpThree;
   
     ListOfFilesInVector = setListOfFilesInVector(argc,argv);
@@ -19,7 +18,7 @@ int main(int argc, char **argv)
     ip = prepareIpContainer(rows);
  
     sortIp(ip);
-    
+
     filtredIpOne = filterRange(ip, 1);
 
     filtredIpTwo = filterRange(ip, 46,70); 
