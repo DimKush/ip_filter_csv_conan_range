@@ -12,7 +12,7 @@ set(CMAKE_CXX_STANDARD 17)
 configure_file(version.vers ${PROJECT_SOURCE_DIR}/version.h)
 
 #include conan
-include(./conanBuild/conanbuildinfo.cmake)
+include(./conanbuildinfo.cmake)
 conan_basic_setup()
 
 #include package
