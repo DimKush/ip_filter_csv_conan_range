@@ -1,8 +1,8 @@
 [includedirs]
-/home/dim/.conan/data/range-v3/0.4.0/ericniebler/stable/package/c56f72666bd7a51587a21788921f73368560826e/include
+/home/dim/.conan/data/range-v3/0.4.0/ericniebler/stable/package/c921ef56ff4a1f40be7a8da971b617c94160e59d/include
 
 [libdirs]
-/home/dim/.conan/data/range-v3/0.4.0/ericniebler/stable/package/c56f72666bd7a51587a21788921f73368560826e/lib
+/home/dim/.conan/data/range-v3/0.4.0/ericniebler/stable/package/c921ef56ff4a1f40be7a8da971b617c94160e59d/lib
 
 [bindirs]
 
@@ -11,7 +11,7 @@
 
 
 [builddirs]
-/home/dim/.conan/data/range-v3/0.4.0/ericniebler/stable/package/c56f72666bd7a51587a21788921f73368560826e/
+/home/dim/.conan/data/range-v3/0.4.0/ericniebler/stable/package/c921ef56ff4a1f40be7a8da971b617c94160e59d/
 
 [libs]
 
@@ -43,15 +43,15 @@
 [frameworks]
 
 
-[framework_paths]
+[frameworkdirs]
 
 
 
 [includedirs_range-v3]
-/home/dim/.conan/data/range-v3/0.4.0/ericniebler/stable/package/c56f72666bd7a51587a21788921f73368560826e/include
+/home/dim/.conan/data/range-v3/0.4.0/ericniebler/stable/package/c921ef56ff4a1f40be7a8da971b617c94160e59d/include
 
 [libdirs_range-v3]
-/home/dim/.conan/data/range-v3/0.4.0/ericniebler/stable/package/c56f72666bd7a51587a21788921f73368560826e/lib
+/home/dim/.conan/data/range-v3/0.4.0/ericniebler/stable/package/c921ef56ff4a1f40be7a8da971b617c94160e59d/lib
 
 [bindirs_range-v3]
 
@@ -60,7 +60,7 @@
 
 
 [builddirs_range-v3]
-/home/dim/.conan/data/range-v3/0.4.0/ericniebler/stable/package/c56f72666bd7a51587a21788921f73368560826e/
+/home/dim/.conan/data/range-v3/0.4.0/ericniebler/stable/package/c921ef56ff4a1f40be7a8da971b617c94160e59d/
 
 [libs_range-v3]
 
@@ -92,11 +92,17 @@
 [frameworks_range-v3]
 
 
-[framework_paths_range-v3]
+[frameworkdirs_range-v3]
 
 
 [rootpath_range-v3]
-/home/dim/.conan/data/range-v3/0.4.0/ericniebler/stable/package/c56f72666bd7a51587a21788921f73368560826e
+/home/dim/.conan/data/range-v3/0.4.0/ericniebler/stable/package/c921ef56ff4a1f40be7a8da971b617c94160e59d
+
+[name_range-v3]
+range-v3
+
+[version_range-v3]
+0.4.0
 
 
 [USER_range-v3]

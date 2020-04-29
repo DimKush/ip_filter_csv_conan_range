@@ -4,8 +4,7 @@
 using namespace libSource;
 
 int main(int argc, char **argv)
-{    
-    
+{
 	std::string mainContent;
     vectStr rows, ListOfFilesInVector;
     vectVectInt ip, filtredIpOne, filtredIpTwo, filtredIpThree;
