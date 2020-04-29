@@ -13,14 +13,18 @@ addons:
     - sourceline: 'deb https://apt.llvm.org/xenial/ llvm-toolchain-xenial-9 main'
       key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
     packages:
-    - clang
+    - clang-9
     - cmake
     - cmake-data 
 env: TOOLSET=clang COMPILER=clang++-9 CXXSTD=c++17 TEST_SUITE=misc
 
+install:
+  # Install conan
+  - pip install conan
+  # Automatic detection of your arch, compiler, etc.
+  - conan user
+
 before_script:
-    - pip install conan
-    - conan user
     - export CXX="clang++-9"
     - export CC="clang-9"
 
