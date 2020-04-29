@@ -3,7 +3,7 @@
     build_type=Debug
     compiler=clang
     compiler.libcxx=libstdc++11
-    compiler.version=6.0
+    compiler.version=9
     os=Linux
 
 [requires]
@@ -18,12 +18,12 @@
     build_type=Debug
     compiler=clang
     compiler.libcxx=libstdc++11
-    compiler.version=6.0
+    compiler.version=9
     os=Linux
     os_build=Linux
 
 [full_requires]
-    range-v3/0.4.0@ericniebler/stable:c921ef56ff4a1f40be7a8da971b617c94160e59d
+    range-v3/0.4.0@ericniebler/stable:3707cbea7a964e29d250d6de20a9896bb67e6167
 
 [full_options]
 
@@ -32,5 +32,5 @@
 
 
 [env]
-    CC=/usr/bin/clang
-    CXX=/usr/bin/clang++
+    CC=/usr/bin/clang-9
+    CXX=/usr/bin/clang++-9
