@@ -82,6 +82,6 @@ set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 
 include(CPack)
 
-add_test(unit_test unit_test_filter.out)
+add_test(unit_test ${test_dir}/unit_test_filter.out)
 
 enable_testing()
