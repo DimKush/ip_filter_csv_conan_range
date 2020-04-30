@@ -6,7 +6,7 @@ set(MINOR_VERSION 1)
 
 #set(ENV{TRAVIS_BUILD_NUMBER} 1) #plug
 
-project(ip_filter_csv VERSION ${MAJOR_VERSION}.${MINOR_VERSION}.$ENV{TRAVIS_BUILD_NUMBER})
+project(ip_filter_csv_conan_range VERSION ${MAJOR_VERSION}.${MINOR_VERSION}.$ENV{TRAVIS_BUILD_NUMBER})
 set(CMAKE_CXX_STANDARD 17)
 
 configure_file(version.vers ${PROJECT_SOURCE_DIR}/version.h)
@@ -25,7 +25,7 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 find_package (Threads)
 
 #source
-add_executable( ip_filter_csv.out 
+add_executable( ip_filter_csv.out
                 ${PROJECT_SOURCE_DIR}/src/main.cpp
 )
 add_library( ip_filter_csv_lib
