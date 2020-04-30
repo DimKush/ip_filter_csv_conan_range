@@ -83,5 +83,9 @@ set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 include(CPack)
 
 enable_testing()
-add_test(unit_test_gtest unit_test_filter.out)
 
+macro (create_test target)
+    add_test(NAME ${target} COMMAND $<TARGET_FILE:unit_test_filter.out>)
+endmacro(create_test)
+
+create_test(unit_test)
