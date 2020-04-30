@@ -182,6 +182,21 @@ namespace UnitTests
             file << *ip << "\n";
     }
 
+    void checkForTrash(vectStr & ipForCheck)
+    {
+        std::regex regIp(REGEX_CONST);
+        
+        for(size_t i = 0 ; i < ipForCheck.size() ; i++)
+        {
+            if(!std::regex_match(ipForCheck.at(i), regIp))
+            {
+                std::cout << "drop ipForCheck.at(i) = " << ipForCheck.at(i) << std::endl;
+                ipForCheck.erase(ipForCheck.begin() + i);
+                i -= 1; // because counts of elements in vector after erase are decreasing but number of iteration must be same
+            }
+        }
+    }
+
     bool checkBuildVersion()
     {
         return PROJECT_VERSION_PATCH > 0;
@@ -256,7 +271,7 @@ TEST(splitAndCheckForTrash, PrepareInformationTest)
     ASSERT_TRUE(std::equal(UnitTests::expectedAfterSplit.begin(),UnitTests::expectedAfterSplit.end()
                           ,factFromTestFile.begin(),factFromTestFile.end()));
     
-    checkForTrash(factFromTestFile);
+    UnitTests::checkForTrash(factFromTestFile);
 
     ASSERT_TRUE(std::equal(UnitTests::expectedAfterCheckForTrash.begin(),UnitTests::expectedAfterCheckForTrash.end()
                           ,factFromTestFile.begin(),factFromTestFile.end()));
@@ -302,8 +317,8 @@ TEST(SortAndFilter, SortingContainerTest)
 
 TEST(SortAndFilter, FilterTest)
 {
-    vectVectInt sample = filter(UnitTests::expectedSortedContainer, 113,162);
-    vectVectInt sampleSecond = filter(UnitTests::expectedSortedContainer, 157);
+    vectVectInt sample = filterRange(UnitTests::expectedSortedContainer, 113,162);
+    vectVectInt sampleSecond = filterRange(UnitTests::expectedSortedContainer, 157);
 
     ASSERT_EQ(true, !sample.empty());
     ASSERT_TRUE(std::equal(sample.begin(), sample.end(),UnitTests::expectedFiltredFirst.begin(), UnitTests::expectedFiltredFirst.end()));

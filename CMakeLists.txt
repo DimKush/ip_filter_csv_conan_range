@@ -1,12 +1,19 @@
 cmake_minimum_required(VERSION 3.12)
 
+
 set(MAJOR_VERSION 0)
 set(MINOR_VERSION 1)
+
 #set(ENV{TRAVIS_BUILD_NUMBER} 1) #plug
 
 project(ip_filter_csv VERSION ${MAJOR_VERSION}.${MINOR_VERSION}.$ENV{TRAVIS_BUILD_NUMBER})
+set(CMAKE_CXX_STANDARD 17)
 
 configure_file(version.vers ${PROJECT_SOURCE_DIR}/version.h)
+
+#include conan
+include(./conanbuildinfo.cmake)
+conan_basic_setup()
 
 #include package
 include(gtest.cmake)
@@ -75,4 +82,10 @@ set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 
 include(CPack)
 
-add_test(unit_test unit_test_filter.out)
+enable_testing()
+
+macro (create_test target)
+    add_test(NAME ${target} COMMAND $<TARGET_FILE:unit_test_filter.out>)
+endmacro(create_test)
+
+create_test(unit_test)

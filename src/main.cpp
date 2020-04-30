@@ -4,11 +4,9 @@
 using namespace libSource;
 
 int main(int argc, char **argv)
-{    
-    
+{
 	std::string mainContent;
     vectStr rows, ListOfFilesInVector;
-    vectVectStr ipBytesStr;
     vectVectInt ip, filtredIpOne, filtredIpTwo, filtredIpThree;
   
     ListOfFilesInVector = setListOfFilesInVector(argc,argv);
@@ -19,10 +17,10 @@ int main(int argc, char **argv)
     ip = prepareIpContainer(rows);
  
     sortIp(ip);
-    
-    filtredIpOne = filter(ip, 1);
 
-    filtredIpTwo = filter(ip, 46,70); 
+    filtredIpOne = filterRange(ip, 1);
+
+    filtredIpTwo = filterRange(ip, 46,70); 
 
     filtredIpThree = filter_any(ip, 46);
 

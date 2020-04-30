@@ -1,9 +1,11 @@
+#include <range/v3/all.hpp>
+#include "libSource.h"
+
 #include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <regex>
 
-#include "libSource.h"
 
 namespace libSource
 {
@@ -24,25 +26,22 @@ namespace libSource
     {
         std::ifstream file;
         std::string strTmp;
-        for(size_t i = 0 ; i < bufferOfFilesNames.size(); i++)
-        {  
-            file.open(bufferOfFilesNames.at(i));
+
+        ranges::for_each(bufferOfFilesNames , [&file, &strTmp, &mainContent](auto element)
+        {
+            file.open(element);
 
             if(!file)
-            {
-                std::cout << "Cant find file : " << bufferOfFilesNames.at(i);
-            }
+                std::cout << "Cant find file : " << element;
             else
-            {
+            {   
                 strTmp.assign(std::istreambuf_iterator<char>(file),std::istreambuf_iterator<char>());
-                
                 mainContent += strTmp;
-                
-                file.close();
-            }
-        }
-    }
 
+                file.close();
+            }            
+        });
+    }
 
     void writeInFile(const vectVectInt & ipInFile)
     {
@@ -61,7 +60,6 @@ namespace libSource
             file << "\n";
         }
     }
-
 
     vectVectInt& concatenateIp(vectVectInt &basicIp,vectVectInt &ip)
     {
@@ -89,53 +87,15 @@ namespace libSource
         return tmpContainer;
     }
 
-
     bool lexiCompare(const vectInt &a, const vectInt &b)
     {
-        return std::lexicographical_compare(a.begin(), a.end(), b.begin(), b.end());
+        return ranges::lexicographical_compare(b,a);
     }
-
 
     void sortIp(vectVectInt & ip)
     {
-        std::sort(ip.rbegin(), ip.rend(), lexiCompare);
+        ranges::sort(ip, lexiCompare);
     }
-
-
-
-    void show(vectVectStr & ipList)
-    { 
-        for(auto ip = ipList.cbegin(); ip != ipList.cend(); ++ip)
-        {
-                for(auto ip_part = ip->cbegin(); ip_part != ip->cend(); ++ip_part)
-                {
-                    if (ip_part != ip->cbegin())
-                    {
-                        std::cout << ".";
-                    }
-                    std::cout << *ip_part;
-                }
-                std::cout << std::endl;
-        }
-    }
-
-
-    void show(vectVectInt & ipList)
-    { 
-        for(auto ip = ipList.cbegin(); ip != ipList.cend(); ++ip)
-        {
-                for(auto ip_part = ip->cbegin(); ip_part != ip->cend(); ++ip_part)
-                {
-                    if (ip_part != ip->cbegin())
-                    {
-                        std::cout << ".";
-                    }
-                    std::cout << *ip_part;
-                }
-                std::cout << std::endl;
-        }
-    }
-
 
     vectVectInt filter_any(vectVectInt & vInside, int param)
     {
@@ -157,32 +117,16 @@ namespace libSource
         return ipSorted;
     }
 
-    void checkForTrash(vectStr & ipForCheck)
-    {
-        std::regex regIp(REGEX_CONST);
-        
-        for(size_t i = 0 ; i < ipForCheck.size() ; i++)
-        {
-            if(!std::regex_match(ipForCheck.at(i), regIp))
-            {
-                std::cout << "drop ipForCheck.at(i) = " << ipForCheck.at(i) << std::endl;
-                ipForCheck.erase(ipForCheck.begin() + i);
-                i -= 1; // because counts of elements in vector after erase are decreasing but number of iteration must be same
-            }
-        }
-    }
-
-
     vectVectInt convertToInt(const vectVectStr &ipSorted)
     {
         vectVectInt ip;
         vectInt ipByte; 
 
-        std::for_each(ipSorted.begin(), ipSorted.end(), [&ip, &ipByte](std::vector<std::string> element)
+        ranges::for_each(ipSorted, [&ip, &ipByte](std::vector<std::string> element)
         {  
             ipByte.clear();
 
-            std::for_each(element.begin(), element.end(), [&ipByte](std::string byteStr)
+            ranges::for_each(element, [&ipByte](auto byteStr)
             {
                 ipByte.emplace_back(std::stoi(byteStr));
             });
@@ -216,5 +160,4 @@ namespace libSource
 
         return convertToInt(ipBytesStr);
     }
-
 };
