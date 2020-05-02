@@ -25,7 +25,7 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 find_package (Threads)
 
 #source
-add_executable( ip_filter_csv.out
+add_executable( ip_filter_csv_conan_range.out
                 ${PROJECT_SOURCE_DIR}/src/main.cpp
 )
 add_library( ip_filter_csv_lib
@@ -43,15 +43,15 @@ add_executable( unit_test_filter.out
 
 
 #targets source
-set_target_properties( ip_filter_csv.out ip_filter_csv_lib PROPERTIES
+set_target_properties( ip_filter_csv_conan_range.out ip_filter_csv_lib PROPERTIES
                        CXX_STANDARD 17
                        CXX_STANDARD_REQUIRED ON
                        COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
 )
-target_link_libraries( ip_filter_csv.out
+target_link_libraries( ip_filter_csv_conan_range.out
                        ip_filter_csv_lib
 )
-target_include_directories( ip_filter_csv.out PUBLIC
+target_include_directories( ip_filter_csv_conan_range.out PUBLIC
                             ${PROJECT_SOURCE_DIR}/libSource
 )
 
@@ -68,7 +68,7 @@ target_include_directories(unit_test_filter.out PUBLIC
 )
 
 
-install(TARGETS ip_filter_csv.out RUNTIME DESTINATION bin)
+install(TARGETS ip_filter_csv_conan_range.out RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 
