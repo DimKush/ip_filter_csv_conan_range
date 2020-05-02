@@ -12,7 +12,13 @@ namespace libSource
     vectStr setListOfFilesInVector(int &argc, char **argv)
     {
         vectStr bufferOfFilesNames;
-        
+
+        if(argc <= 1)
+        {
+            std::cout << "File list in command line is empty." << '\n';
+            std::exit(0);
+        }
+
         for(auto i = 1 ; i < argc; i++)
         {
             bufferOfFilesNames.emplace_back(std::string(*(argv + i)));
